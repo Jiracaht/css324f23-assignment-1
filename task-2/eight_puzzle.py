@@ -1,4 +1,5 @@
 import copy
+import math
 
 
 def initial_state():
@@ -50,5 +51,17 @@ def h1(s):
 
 def h3(s):
     # implement this function
-    board, _, _ = s
-    return 0
+    goal = (1, 2, 3, 4, 5, 6, 7, 8, 0)
+    board, r, c = s
+    otr = 0
+    otc = 0
+    res = 0
+    for idx in range(1, 9):
+        if board[idx]%3 != goal[idx]%3:
+            otc+=1
+        if board[idx]!=0 and math.ceil(board[idx]/3) != math.ceil(goal[idx]/3):
+            otr+=1
+        elif board[idx] ==0 and goal[idx]//3 !=2:
+            otr+=1
+    res = otc+otr
+    return res
