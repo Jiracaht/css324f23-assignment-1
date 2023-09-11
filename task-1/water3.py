@@ -15,5 +15,3 @@ def successors(s):
     if (y+z>3 and y!=0): yield((x,y-(3-z),3),3-z)
     if(y!=0): yield((x+y,0,z),y)
     if(z!=0): yield((x+z,y,0),z)
-    
-    
